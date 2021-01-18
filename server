@@ -1,6 +1,6 @@
-{"t":{"$date":"2020-12-28T20:04:35.314+03:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"main","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
-{"t":{"$date":"2020-12-28T20:04:35.770+03:00"},"s":"W",  "c":"ASIO",     "id":22601,   "ctx":"main","msg":"No TransportLayer configured during NetworkInterface startup"}
-{"t":{"$date":"2020-12-28T20:04:35.770+03:00"},"s":"I",  "c":"NETWORK",  "id":4648602, "ctx":"main","msg":"Implicit TCP FastOpen in use."}
+{"t":{"$date":"2021-01-18T11:24:50.361+03:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"main","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2021-01-18T11:24:50.363+03:00"},"s":"W",  "c":"ASIO",     "id":22601,   "ctx":"main","msg":"No TransportLayer configured during NetworkInterface startup"}
+{"t":{"$date":"2021-01-18T11:24:50.363+03:00"},"s":"I",  "c":"NETWORK",  "id":4648602, "ctx":"main","msg":"Implicit TCP FastOpen in use."}
 Invalid command: -
 Options:
   --networkMessageCompressors arg (=snappy,zstd,zlib)
@@ -102,17 +102,25 @@ Storage options:
                                         the oplog. Default is 0 (turned off). 
                                         Fractions are allowed (e.g. 1.5 hours)
 
-Windows Service Control Manager options:
-  --install                             Install Windows service
-  --remove                              Remove Windows service
-  --reinstall                           Reinstall Windows service (equivalent 
-                                        to --remove followed by --install)
-  --serviceName arg                     Windows service name
-  --serviceDisplayName arg              Windows service display name
-  --serviceDescription arg              Windows service description
-  --serviceUser arg                     Account for service execution
-  --servicePassword arg                 Password used to authenticate 
-                                        serviceUser
+AWS IAM Options:
+  --awsIamSessionToken arg              AWS Session Token for temporary 
+                                        credentials
+
+WiredTiger options:
+  --wiredTigerCacheSizeGB arg           Maximum amount of memory to allocate 
+                                        for cache; Defaults to 1/2 of physical 
+                                        RAM
+  --wiredTigerJournalCompressor arg (=snappy)
+                                        Use a compressor for log records 
+                                        [none|snappy|zlib|zstd]
+  --wiredTigerDirectoryForIndexes       Put indexes and data in different 
+                                        directories
+  --wiredTigerCollectionBlockCompressor arg (=snappy)
+                                        Block compression algorithm for 
+                                        collection data [none|snappy|zlib|zstd]
+  --wiredTigerIndexPrefixCompression arg (=1)
+                                        Use prefix compression on row-store 
+                                        leaf pages
 
 TLS Options:
   --tlsOnNormalPorts                    Use TLS on configured ports
@@ -153,23 +161,15 @@ Free Monitoring Options:
                                         (on|runtime|off)
   --freeMonitoringTag arg               Cloud Free Monitoring Tags
 
-AWS IAM Options:
-  --awsIamSessionToken arg              AWS Session Token for temporary 
-                                        credentials
-
-WiredTiger options:
-  --wiredTigerCacheSizeGB arg           Maximum amount of memory to allocate 
-                                        for cache; Defaults to 1/2 of physical 
-                                        RAM
-  --wiredTigerJournalCompressor arg (=snappy)
-                                        Use a compressor for log records 
-                                        [none|snappy|zlib|zstd]
-  --wiredTigerDirectoryForIndexes       Put indexes and data in different 
-                                        directories
-  --wiredTigerCollectionBlockCompressor arg (=snappy)
-                                        Block compression algorithm for 
-                                        collection data [none|snappy|zlib|zstd]
-  --wiredTigerIndexPrefixCompression arg (=1)
-                                        Use prefix compression on row-store 
-                                        leaf pages
+Windows Service Control Manager options:
+  --install                             Install Windows service
+  --remove                              Remove Windows service
+  --reinstall                           Reinstall Windows service (equivalent 
+                                        to --remove followed by --install)
+  --serviceName arg                     Windows service name
+  --serviceDisplayName arg              Windows service display name
+  --serviceDescription arg              Windows service description
+  --serviceUser arg                     Account for service execution
+  --servicePassword arg                 Password used to authenticate 
+                                        serviceUser
 
